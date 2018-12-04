@@ -19,6 +19,9 @@ public class FruitQuiz extends KeyAdapter {
 		question2 = new JLabel("<html>In the rpg ffbe, what is noctis's limit burst name?<br>A:Armiger<br>B:Warp Strike<br>C:point-warp blank strike<br>Zero Warp");
 		
 		question3 = new JLabel("<html>What is Orlandeu's 7-chain ability?<br>A:Holy-Chain<br>B:Auroura Ray<br>C:Divine Ruination");
+		
+		question4 = new JLabel("<html>What is 2 + 2?<br>A:four<br>B:4<br>C:V<br>D:4</html>");
+		
 		// 11. Make another question called "question2".  Use question1 above as a guide.
 	
 	}
@@ -65,6 +68,16 @@ public class FruitQuiz extends KeyAdapter {
 			if (question3.isShowing()) {
 				if(keyCode==c) {
 					correct();
+					nextQuestion(question4);
+					
+				}
+				else {
+					incorrect();
+				}
+			}
+			if (question4.isShowing()) {
+				if(keyCode==b) {
+					correct();
 					
 				}
 				else {
@@ -84,6 +97,8 @@ public class FruitQuiz extends KeyAdapter {
 	}
 
 	private void correct() {
+		AudioClip sound = JApplet.newAudioClip(getClass().getResource("correct.wav"));
+		sound.play();
 		// 5. Find a sound for when they get a question right, and drag it into
 		// the 'extra' package. It must be a .wav file. 
 		// There are lots on freesound.org
@@ -94,7 +109,8 @@ public class FruitQuiz extends KeyAdapter {
 
 	private void incorrect() {
 		// 10. Find a sound for wrong answers and put it in the default package. Use the playSound method to play it.
-
+		AudioClip sound = JApplet.newAudioClip(getClass().getResource("wrong.wav"));
+		sound.play();
 	}
 
 	private void nextQuestion(JLabel newQuestion) {
