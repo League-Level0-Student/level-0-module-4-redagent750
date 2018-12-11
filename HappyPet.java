@@ -20,7 +20,6 @@ for(int i=0 ; i<5; i++) {
 					new String[] { "clean", "Play", "Feed" }, null);
 if(task==0) {
 	clean();
-	
 }
 if(task==1) {
 play();
@@ -28,7 +27,7 @@ play();
 if(task==2) {
  feed();
 }
-System.out.println(mood);
+
 }
 if(mood>0) {
 	JOptionPane.showMessageDialog(null, "Your "+pet+" loves you and wants to stay with you!");
